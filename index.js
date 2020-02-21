@@ -34,7 +34,7 @@ const createEmployeeRecords = (employees) => {
 };
 
 
-/*
+
 const createTimeEvent = (type) => {
   return (employeeObject, timestamp) => {
     const [date, hour] = timestamp.split(" ");
@@ -57,6 +57,9 @@ const createTimeInEvent = (employeeObject, timestamp) => {
 const createTimeOutEvent = (employeeObject, timestamp) => {
   return createTimeEvent("timeOut")(employeeObject, timestamp);
 };
+
+
+/*
 
 const hoursWorkedOnDate = (employeeObject, date) => {
   const timeIn = employeeObject.timeInEvents.find(record => record.date === date);
