@@ -36,7 +36,7 @@ const createEmployeeRecords = (employees) => {
 
 
 const createTimeEvent = (type) => {
-  return (employeeObject, timestamp) => {
+  return function(timestamp){
     const [date, hour] = timestamp.split(" ");
     const typeText = type[0].toUpperCase() + type.slice(1);
 
@@ -45,17 +45,17 @@ const createTimeEvent = (type) => {
  
     const timeEvent = arrayToObject(valArray, keys);
   
-    employeeObject[type + "Events"].push(timeEvent);
-    return employeeObject;
+    this[type + "Events"].push(timeEvent);
+    return this;
   };
 };
 
-const createTimeInEvent = (employeeObject, timestamp) => {
-  return createTimeEvent("timeIn")(employeeObject, timestamp);
+const createTimeInEvent = function(timestamp){
+  return createTimeEvent("timeIn")(this, timestamp);
 };
 
-const createTimeOutEvent = (employeeObject, timestamp) => {
-  return createTimeEvent("timeOut")(employeeObject, timestamp);
+const createTimeOutEvent = function(employeeObject, timestamp){
+  return createTimeEvent("timeOut")(this, timestamp);
 };
 
 
