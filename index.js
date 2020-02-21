@@ -90,7 +90,7 @@ const allWagesFor = function(){
 
 const findEmployeebyFirstName = function(srcArray, firstName) {
   return srcArray.find(function(rec){
-    return rec.firstName === firstName;
+    return rec.firstName === firstName
   });
 };
 
